@@ -10,16 +10,9 @@ class Magic_Ball extends StatefulWidget {
 
 class _Magic_BallState extends State<Magic_Ball> {
 
-  late int intValue;
+  int intValue=1;
 
   @override
-
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-      intValue = 1;
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
@@ -27,8 +20,11 @@ class _Magic_BallState extends State<Magic_Ball> {
           child: Image.asset('images/ball${intValue}.png'),
         ),
         onTap: (){
-          intValue = Random().nextInt(4) + 1;
-          print(intValue);
+          setState(() {
+            intValue = Random().nextInt(4) + 1;
+            print(intValue);
+          });
+
         },
       ),
     );
